@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.IO;
+using ClosedXML.Excel;
+using System.Runtime.InteropServices;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 
 
 namespace WindowsFormsApp1
@@ -17,112 +22,99 @@ namespace WindowsFormsApp1
         MySqlConnection mySqlConnection;
         MySqlCommand mySqlCommand;
         MySqlDataReader reader;
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            lb_Id.Enabled = false;
-            lb_Id.Text = dataGridView1[0,e.RowIndex].Value.ToString();
-            lb_precio.Text = dataGridView1[1, e.RowIndex].Value.ToString();
-            lb_url.Text = dataGridView1[2, e.RowIndex].Value.ToString();
-        
-        }
-
-        private void cargaDatos()
+        private void cargadatos()
         {
             try
             {
                 dataGridView1.Rows.Clear();
-
-                mySqlConnection = new MySqlConnection("host=localhost;user=root;password=admin;database=punto_de_venta"); //Streing de conección
-
+                mySqlConnection = new MySqlConnection("host=localhost;user=root;password=admib;database=sistema_escolar;"); // String de connexion
                 mySqlConnection.Open();
-
-                mySqlCommand = new MySqlCommand("SELECT * FROM productos", mySqlConnection);
-
-                reader = mySqlCommand.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    dataGridView1.Rows.Add(reader.GetUInt32(0),reader.GetString(1),reader.GetString(2),reader.GetString(3));
-                }
-
-                
-                mySqlConnection.Close();
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter("SELECT matricula as 'Expediente', UPPER(ap1) as 'Apellido P', UPPER(ap2) as 'Apellido M', UPPER(nombre) as 'Primer Nombre', fechadenacimento, correo, telefono FROM alumnos", mySqlConnecion);
+                DataTable dataTable = new DataTable();
+                mySqlDataAdapter.Fill(dataTable);
+                dataGridView1.DataSource = dataTable;
             }
             catch (Exception error)
             {
 
-                MessageBox.Show(error.ToString(),"error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Hand);
+                MessageBox.Show(error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            cargaDatos();
+            cargadatos();
+            
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            String query = "INSERT INTO alumnos (producto_id,producto_nombre,producto_precio,producto_url VALUES ("+ lb_Id.Text+",'"+ lb_precio.Text + "','"+ lb_url.Text + ";";
-            
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tb_matricula.Enabled = false;
+            tb_matricula.Text = dataGridView1[0, e.RowIndex].Value.ToString();
+            tb_ap1.Text = dataGridView1[1, e.RowIndex].Value.ToString();
+            tb_ap2.Text = dataGridView1[2, e.RowIndex].Value.ToString();
+            name.Text = dataGridView1[3, e.RowIndex].Value.ToString();
+            dateTimePicker1.Value = DateTime.Parse(dataGridView1[4, e.RowIndex].Value.ToString());
+            correo.Text = dataGridView1[5, e.RowIndex].Value.ToString();
+            tel.Text = dataGridView1[6, e.RowIndex].Value.ToString();
+        }
+
+
+
+
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
             try
             {
-                mySqlConnection = new MySqlConnection("host=localhost;user=root;password=admin;database=sistemas_escolar"); //Streing de conección
+                string archivo;
+                archivo = SaveFileDialog.FileName;
+                MessageBox.Show(archivo);
+                Document documento = new Document(iTextSharp.text.PageSize.LETTER.Rotate());
+                PdfWriter.GetInstance(documento, new FileStream(SaveFileDialog1.FileName, FileMode.Create));
+                documento.Open();
+                PdfPTable tablepdf = new PdfPTable(7);
+                PdfPCell titulo = new PdfPCell(new Phrase("Base de Datos"));
+                titulo.Colspan = 7;
+                tablepdf.AddCell(titulo);
+                tablepdf.AddCell("Matricula");
+                tablepdf.AddCell("Apellido Paterno");
+                tablepdf.AddCell("Apellido Materno");
+                tablepdf.AddCell("Nombre");
+                tablepdf.AddCell("Fecha de Nacimiento");
+                tablepdf.AddCell("Correo");
+                tablepdf.AddCell("Telefono");
 
-                mySqlConnection.Open();
-                                           
-                mySqlCommand = new MySqlCommand(query, mySqlConnection);
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    tablepdf.AddCell(dataGridView1[0, i].Value.ToString());
+                    tablepdf.AddCell(dataGridView1[1, i].Value.ToString());
+                    tablepdf.AddCell(dataGridView1[2, i].Value.ToString());
+                    tablepdf.AddCell(dataGridView1[3, i].Value.ToString());
+                    tablepdf.AddCell(dataGridView1[4, i].Value.ToString());
+                    tablepdf.AddCell(dataGridView1[5, i].Value.ToString());
+                    tablepdf.AddCell(dataGridView1[6, i].Value.ToString());
+                }
 
-                mySqlCommand.ExecuteNonQuery();
 
-                MessageBox.Show("Finalizado");
 
-                cargaDatos();
-                                
 
-                mySqlConnection.Close();
-                            
-
+                documento.Add(tablepdf);
+                documento.Close();
             }
             catch (Exception error)
             {
 
-                MessageBox.Show(error.ToString(), "error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Hand);
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            String query = "delete from productos where producto_id=" + tb_matricula.Text;
-            
-            //hola mundo
-            try
-            {
-                mySqlConnection = new MySqlConnection("host=localhost;user=root;password=admin;database=sistemas_escolar"); //Streing de conección
-
-                mySqlConnection.Open();
-                                
-                mySqlCommand = new MySqlCommand(query, mySqlConnection);
-
-
-                mySqlCommand.ExecuteNonQuery();
-
-                MessageBox.Show("Finalizado");
-
-                cargaDatos();
-
-                mySqlConnection.Close();
-                              
-                
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.ToString(), "error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Hand);
+                MessageBox.Show(error + "Eror");
             }
         }
     }
