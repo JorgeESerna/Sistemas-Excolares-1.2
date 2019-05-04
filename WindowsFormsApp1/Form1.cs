@@ -61,10 +61,10 @@ namespace WindowsFormsApp1
             tb_matricula.Text = dataGridView1[0, e.RowIndex].Value.ToString();
             tb_ap1.Text = dataGridView1[1, e.RowIndex].Value.ToString();
             tb_ap2.Text = dataGridView1[2, e.RowIndex].Value.ToString();
-            name.Text = dataGridView1[3, e.RowIndex].Value.ToString();
+            tb_name.Text = dataGridView1[3, e.RowIndex].Value.ToString();
             dateTimePicker1.Value = DateTime.Parse(dataGridView1[4, e.RowIndex].Value.ToString());
-            correo.Text = dataGridView1[5, e.RowIndex].Value.ToString();
-            tel.Text = dataGridView1[6, e.RowIndex].Value.ToString();
+            tb_correo.Text = dataGridView1[5, e.RowIndex].Value.ToString();
+            tb_tel.Text = dataGridView1[6, e.RowIndex].Value.ToString();
         }
 
 
