@@ -110,5 +110,29 @@
   <ItemGroup>
     <None Include="img\sql.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="img\pdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\csv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\json-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\minimize.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

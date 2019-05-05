@@ -30,16 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.lb_Id = new System.Windows.Forms.Label();
             this.tb_matricula = new System.Windows.Forms.TextBox();
             this.tb_ap1 = new System.Windows.Forms.TextBox();
             this.tb_ap2 = new System.Windows.Forms.TextBox();
-            this.pdf = new System.Windows.Forms.Button();
             this.tb_name = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tb_correo = new System.Windows.Forms.TextBox();
@@ -68,6 +63,15 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.bjson = new System.Windows.Forms.Button();
+            this.bt_excel = new System.Windows.Forms.Button();
+            this.btnredondo2 = new System.Windows.Forms.Button();
+            this.btnredondo1 = new System.Windows.Forms.Button();
+            this.bt_csv = new System.Windows.Forms.Button();
+            this.bt_sql = new System.Windows.Forms.Button();
+            this.bt_pdf = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -82,41 +86,12 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(41, 365);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(800, 415);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Precio";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Url";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // label1
             // 
@@ -169,16 +144,6 @@
             this.tb_ap2.Size = new System.Drawing.Size(170, 28);
             this.tb_ap2.TabIndex = 7;
             this.tb_ap2.Text = "Navarro";
-            // 
-            // pdf
-            // 
-            this.pdf.Location = new System.Drawing.Point(147, 272);
-            this.pdf.Name = "pdf";
-            this.pdf.Size = new System.Drawing.Size(75, 23);
-            this.pdf.TabIndex = 18;
-            this.pdf.Text = "button3";
-            this.pdf.UseVisualStyleBackColor = true;
-            this.pdf.Click += new System.EventHandler(this.button3_Click);
             // 
             // tb_name
             // 
@@ -477,6 +442,168 @@
             this.button1.TabIndex = 46;
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.button4.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.minimize;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.Location = new System.Drawing.Point(792, 10);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(22, 23);
+            this.button4.TabIndex = 56;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.button3.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.close;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button3.Location = new System.Drawing.Point(824, 8);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(26, 26);
+            this.button3.TabIndex = 55;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // bjson
+            // 
+            this.bjson.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bjson.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.json_file;
+            this.bjson.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bjson.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bjson.FlatAppearance.BorderSize = 0;
+            this.bjson.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bjson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.bjson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bjson.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bjson.Location = new System.Drawing.Point(255, 296);
+            this.bjson.Name = "bjson";
+            this.bjson.Size = new System.Drawing.Size(37, 40);
+            this.bjson.TabIndex = 54;
+            this.bjson.UseVisualStyleBackColor = false;
+            this.bjson.Click += new System.EventHandler(this.bjson_Click);
+            // 
+            // bt_excel
+            // 
+            this.bt_excel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bt_excel.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.excel;
+            this.bt_excel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bt_excel.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_excel.FlatAppearance.BorderSize = 0;
+            this.bt_excel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bt_excel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.bt_excel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_excel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bt_excel.Location = new System.Drawing.Point(196, 296);
+            this.bt_excel.Name = "bt_excel";
+            this.bt_excel.Size = new System.Drawing.Size(37, 40);
+            this.bt_excel.TabIndex = 53;
+            this.bt_excel.UseVisualStyleBackColor = false;
+            this.bt_excel.Click += new System.EventHandler(this.bt_excel_Click);
+            // 
+            // btnredondo2
+            // 
+            this.btnredondo2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnredondo2.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.delete;
+            this.btnredondo2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnredondo2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnredondo2.FlatAppearance.BorderSize = 0;
+            this.btnredondo2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnredondo2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnredondo2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnredondo2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnredondo2.Location = new System.Drawing.Point(399, 216);
+            this.btnredondo2.Name = "btnredondo2";
+            this.btnredondo2.Size = new System.Drawing.Size(43, 43);
+            this.btnredondo2.TabIndex = 52;
+            this.btnredondo2.UseVisualStyleBackColor = false;
+            this.btnredondo2.Click += new System.EventHandler(this.btnredondo2_Click);
+            // 
+            // btnredondo1
+            // 
+            this.btnredondo1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnredondo1.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.add;
+            this.btnredondo1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnredondo1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnredondo1.FlatAppearance.BorderSize = 0;
+            this.btnredondo1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnredondo1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnredondo1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnredondo1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnredondo1.Location = new System.Drawing.Point(346, 218);
+            this.btnredondo1.Name = "btnredondo1";
+            this.btnredondo1.Size = new System.Drawing.Size(41, 40);
+            this.btnredondo1.TabIndex = 51;
+            this.btnredondo1.UseVisualStyleBackColor = false;
+            this.btnredondo1.Click += new System.EventHandler(this.btnredondo1_Click);
+            // 
+            // bt_csv
+            // 
+            this.bt_csv.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bt_csv.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.csv;
+            this.bt_csv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bt_csv.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_csv.FlatAppearance.BorderSize = 0;
+            this.bt_csv.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bt_csv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.bt_csv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_csv.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bt_csv.Location = new System.Drawing.Point(135, 296);
+            this.bt_csv.Name = "bt_csv";
+            this.bt_csv.Size = new System.Drawing.Size(37, 40);
+            this.bt_csv.TabIndex = 50;
+            this.bt_csv.UseVisualStyleBackColor = false;
+            this.bt_csv.Click += new System.EventHandler(this.bt_csv_Click);
+            // 
+            // bt_sql
+            // 
+            this.bt_sql.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bt_sql.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.sql;
+            this.bt_sql.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bt_sql.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_sql.FlatAppearance.BorderSize = 0;
+            this.bt_sql.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bt_sql.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.bt_sql.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_sql.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bt_sql.Location = new System.Drawing.Point(76, 296);
+            this.bt_sql.Name = "bt_sql";
+            this.bt_sql.Size = new System.Drawing.Size(37, 40);
+            this.bt_sql.TabIndex = 49;
+            this.bt_sql.UseVisualStyleBackColor = false;
+            this.bt_sql.Click += new System.EventHandler(this.bt_sql_Click);
+            // 
+            // bt_pdf
+            // 
+            this.bt_pdf.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bt_pdf.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.pdf;
+            this.bt_pdf.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bt_pdf.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bt_pdf.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_pdf.FlatAppearance.BorderSize = 0;
+            this.bt_pdf.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bt_pdf.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.bt_pdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_pdf.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bt_pdf.Location = new System.Drawing.Point(23, 296);
+            this.bt_pdf.Name = "bt_pdf";
+            this.bt_pdf.Size = new System.Drawing.Size(37, 40);
+            this.bt_pdf.TabIndex = 48;
+            this.bt_pdf.UseVisualStyleBackColor = false;
+            this.bt_pdf.Click += new System.EventHandler(this.bt_pdf_Click_1);
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -500,6 +627,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(874, 777);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.bjson);
+            this.Controls.Add(this.bt_excel);
+            this.Controls.Add(this.btnredondo2);
+            this.Controls.Add(this.btnredondo1);
+            this.Controls.Add(this.bt_csv);
+            this.Controls.Add(this.bt_sql);
+            this.Controls.Add(this.bt_pdf);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -527,7 +663,6 @@
             this.Controls.Add(this.tb_correo);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.tb_name);
-            this.Controls.Add(this.pdf);
             this.Controls.Add(this.tb_ap2);
             this.Controls.Add(this.tb_ap1);
             this.Controls.Add(this.tb_matricula);
@@ -561,11 +696,6 @@
         private System.Windows.Forms.TextBox tb_matricula;
         private System.Windows.Forms.TextBox tb_ap1;
         private System.Windows.Forms.TextBox tb_ap2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.Button pdf;
         private System.Windows.Forms.TextBox tb_name;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox tb_correo;
@@ -595,6 +725,15 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bt_pdf;
+        private System.Windows.Forms.Button bt_sql;
+        private System.Windows.Forms.Button bt_csv;
+        private System.Windows.Forms.Button btnredondo1;
+        private System.Windows.Forms.Button btnredondo2;
+        private System.Windows.Forms.Button bt_excel;
+        private System.Windows.Forms.Button bjson;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 
